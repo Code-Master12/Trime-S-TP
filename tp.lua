@@ -1,0 +1,61 @@
+local TP = {}
+
+local pos1a = Vector3.new(-117, 106, -204)
+local pos1b = Vector3.new(-96, 106, -309)
+
+local pos2a = Vector3.new(200, 58, -65)
+local pos2b = Vector3.new(191, 57, 50)
+
+local pos3a = Vector3.new(22, 63, -62)
+local pos3b = Vector3.new(86, 63, 51)
+
+local pos4a = Vector3.new(-193, 49, 292)
+local pos4b = Vector3.new(-225, 62, 144)
+
+local pos5a = Vector3.new(-168, 155, 78)
+local pos5b = Vector3.new(-155, 155, -67)
+
+local maxDiff = 35
+
+local player = game.Players.LocalPlayer
+local playerPosition = player.Character.HumanoidRootPart.Position
+
+local function isCloseEnough(position1, position2)
+    return (math.abs(position1.X - position2.X) <= maxDiff) and 
+           (math.abs(position1.Y - position2.Y) <= maxDiff) and 
+           (math.abs(position1.Z - position2.Z) <= maxDiff)
+end
+
+function checkAndMovePlayer()
+    if isCloseEnough(playerPosition, pos1a) then
+        player.Character:MoveTo(pos1b)
+    elseif isCloseEnough(playerPosition, pos1b) then
+        player.Character:MoveTo(pos1a)
+    end
+
+    if isCloseEnough(playerPosition, pos2a) then
+        player.Character:MoveTo(pos2b)
+    elseif isCloseEnough(playerPosition, pos2b) then
+        player.Character:MoveTo(pos2a)
+    end
+
+    if isCloseEnough(playerPosition, pos3a) then
+        player.Character:MoveTo(pos3b)
+    elseif isCloseEnough(playerPosition, pos3b) then
+        player.Character:MoveTo(pos3a)
+    end
+
+    if isCloseEnough(playerPosition, pos4a) then
+        player.Character:MoveTo(pos4b)
+    elseif isCloseEnough(playerPosition, pos4b) then
+        player.Character:MoveTo(pos4a)
+    end
+
+    if isCloseEnough(playerPosition, pos5a) then
+        player.Character:MoveTo(pos5b)
+    elseif isCloseEnough(playerPosition, pos5b) then
+        player.Character:MoveTo(pos5a)
+    end
+end
+
+return TP
