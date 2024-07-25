@@ -17,7 +17,7 @@ local pos5b = Vector3.new(-155, 155, -67)
 
 local maxDiff = 35
 
-local player = game:GetService("Players").LocalPlayer
+local player = game.Players.LocalPlayer
 local playerPosition = player.Character.HumanoidRootPart.Position
 
 local function isCloseEnough(position1, position2)
