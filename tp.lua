@@ -26,7 +26,7 @@ local function isCloseEnough(position1, position2)
            (math.abs(position1.Z - position2.Z) <= maxDiff)
 end
 
-function checkAndMovePlayer()
+function TP:checkAndMovePlayer()
     if isCloseEnough(playerPosition, pos1a) then
         player.Character:MoveTo(pos1b)
     elseif isCloseEnough(playerPosition, pos1b) then
