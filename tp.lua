@@ -17,9 +17,6 @@ local pos5b = Vector3.new(-155, 155, -67)
 
 local maxDiff = 35
 
-local player = game.Players.LocalPlayer
-local playerPosition = player.Character.HumanoidRootPart.Position
-
 local function isCloseEnough(position1, position2)
     return (math.abs(position1.X - position2.X) <= maxDiff) and 
            (math.abs(position1.Y - position2.Y) <= maxDiff) and 
@@ -27,6 +24,9 @@ local function isCloseEnough(position1, position2)
 end
 
 function TP:checkAndMovePlayer()
+    local player = game.Players.LocalPlayer
+    local playerPosition = player.Character.HumanoidRootPart.Position
+    
     if isCloseEnough(playerPosition, pos1a) then
         player.Character:MoveTo(pos1b)
     elseif isCloseEnough(playerPosition, pos1b) then
