@@ -13,7 +13,7 @@ local pos4b = Vector3.new(-225, 63, 144)
 local pos5a = Vector3.new(-168, 156, 78)
 local pos5b = Vector3.new(-155, 156, -67)
 
-local maxDiff = 35
+local maxDiff = 50
 
 local TP = {}
 
