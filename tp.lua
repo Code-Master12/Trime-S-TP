@@ -1,1 +1,61 @@
-local v0=Vector3.new( -(160 -(35 + 8)),362 -255 , -(1470 -(97 + 1169)));local v1=Vector3.new( -(1161 -(68 + 997)),233 -126 , -309);local v2=Vector3.new(1470 -(226 + 1044) ,256 -197 , -(182 -(32 + 85)));local v3=Vector3.new(188 + 3 ,13 + 45 ,1007 -(892 + 65) );local v4=Vector3.new(51 -29 ,201 -137 , -(113 -51));local v5=Vector3.new(330 -244 ,506 -(416 + 26) ,162 -111 );local v6=Vector3.new( -(353 -160),88 -38 ,642 -(87 + 263) );local v7=Vector3.new( -(655 -(44 + 386)),63,324 -(67 + 113) );local v8=Vector3.new( -(124 + 44),382 -226 ,58 + 20 );local v9=Vector3.new( -(927 -(201 + 571)),620 -464 , -(278 -211));local v10=21 + 14 ;local v11={};local function v12(v14,v15) return (math.abs(v14.X-v15.X )<=v10) and (math.abs(v14.Y-v15.Y )<=v10) and (math.abs(v14.Z-v15.Z )<=v10) ;end v11.checkAndMovePlayer=function(v16) local v17=0 -0 ;local v18;local v19;while true do if (v17==(954 -(802 + 150))) then if v12(v19,v4) then v18.Character:MoveTo(v5);elseif v12(v19,v5) then v18.Character:MoveTo(v4);end if v12(v19,v6) then v18.Character:MoveTo(v7);elseif v12(v19,v7) then v18.Character:MoveTo(v6);end v17=7 -4 ;end if (v17==(0 -0)) then local v20=859 -(814 + 45) ;while true do if ((2 -1)==v20) then v17=1;break;end if (v20==(0 + 0)) then v18=game.Players.LocalPlayer;v19=v18.Character.HumanoidRootPart.Position;v20=998 -(915 + 82) ;end end end if (v17==(1 + 2)) then if v12(v19,v8) then v18.Character:MoveTo(v9);elseif v12(v19,v9) then v18.Character:MoveTo(v8);end break;end if (v17==(2 -1)) then if v12(v19,v0) then v18.Character:MoveTo(v1);elseif v12(v19,v1) then v18.Character:MoveTo(v0);end if v12(v19,v2) then v18.Character:MoveTo(v3);elseif v12(v19,v3) then v18.Character:MoveTo(v2);end v17=2 + 0 ;end end end;return v11;
+local pos1a = Vector3.new(-117, 107, -204)
+local pos1b = Vector3.new(-96, 107, -309)
+
+local pos2a = Vector3.new(183, 58, 44)
+local pos2b = Vector3.new(201, 58, -61)
+
+local pos3a = Vector3.new(22, 64, -62)
+local pos3b = Vector3.new(86, 64, 51)
+
+local pos4a = Vector3.new(-193, 50, 292)
+local pos4b = Vector3.new(-225, 63, 144)
+
+local pos5a = Vector3.new(-168, 156, 78)
+local pos5b = Vector3.new(-155, 156, -67)
+
+local maxDiff = 35
+
+local TP = {}
+
+local function isCloseEnough(position1, position2)
+    return (math.abs(position1.X - position2.X) <= maxDiff) and 
+           (math.abs(position1.Y - position2.Y) <= maxDiff) and 
+           (math.abs(position1.Z - position2.Z) <= maxDiff)
+end
+
+function TP:checkAndMovePlayer()
+    local player = game.Players.LocalPlayer
+    local playerPosition = player.Character.HumanoidRootPart.Position
+
+    if isCloseEnough(playerPosition, pos1a) then
+        player.Character:MoveTo(pos1b)
+    elseif isCloseEnough(playerPosition, pos1b) then
+        player.Character:MoveTo(pos1a)
+    end
+
+    if isCloseEnough(playerPosition, pos2a) then
+        player.Character:MoveTo(pos2b)
+    elseif isCloseEnough(playerPosition, pos2b) then
+        player.Character:MoveTo(pos2a)
+    end
+
+    if isCloseEnough(playerPosition, pos3a) then
+        player.Character:MoveTo(pos3b)
+    elseif isCloseEnough(playerPosition, pos3b) then
+        player.Character:MoveTo(pos3a)
+    end
+
+    if isCloseEnough(playerPosition, pos4a) then
+        player.Character:MoveTo(pos4b)
+    elseif isCloseEnough(playerPosition, pos4b) then
+        player.Character:MoveTo(pos4a)
+    end
+
+    if isCloseEnough(playerPosition, pos5a) then
+        player.Character:MoveTo(pos5b)
+    elseif isCloseEnough(playerPosition, pos5b) then
+        player.Character:MoveTo(pos5a)
+    end
+end
+
+return TP
